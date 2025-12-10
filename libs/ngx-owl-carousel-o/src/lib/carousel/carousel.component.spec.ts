@@ -11,7 +11,6 @@ import {
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Location } from '@angular/common';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
@@ -65,7 +64,6 @@ describe('CarouselComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule,
         RouterModule.forRoot([
           { path: '', component: TestComponent },
           { path: 'owl-car', component: HashComponent },

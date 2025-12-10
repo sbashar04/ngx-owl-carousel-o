@@ -14,6 +14,7 @@
 		-ms-touch-action: pan-Y;
 		touch-action: manipulation;
 		-moz-backface-visibility: hidden; /* fix firefox animation glitch */
+		will-change: transform;
 	}
 
 	.owl-stage:after {

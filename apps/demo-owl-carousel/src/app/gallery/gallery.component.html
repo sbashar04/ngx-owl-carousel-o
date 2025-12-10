@@ -4,7 +4,7 @@
   <owl-carousel-o [options]="customOptions" #owlCat>
     @for(image of imagesData; track image.src) {
     <ng-template carouselSlide let-owlItem>
-      <div class="slide" [@activeSlide]="owlItem.isCentered ? 'active' : 'inActive'">
+      <div class="slide">
         <!-- {{owlItem.center}}
           {{owlItem.id}} -->
         <img [src]="image.src" [alt]="image.alt" [title]="image.title">

@@ -7,7 +7,6 @@ import { Subject, merge, of, fromEvent, from } from 'rxjs';
 import { tap, filter, switchMap, first, take, skip, map, toArray, pairwise, delay } from 'rxjs/operators';
 import * as i1 from '@angular/router';
 import { NavigationEnd } from '@angular/router';
-import { trigger, state, transition, style, animate } from '@angular/animations';
 
 /**
  * Defaults value of options
@@ -3051,34 +3050,19 @@ class StageComponent {
                                             'margin-left': slide.marginL ? slide.marginL + 'px' : '',
                                             'margin-right': slide.marginR ? slide.marginR + 'px' : '',
                                             'left': slide.left}"
-                                (animationend)="clear(slide.id)"
-                                [@autoHeight]="slide.heightState">
-              @if(slide.load) {
-                <ng-template  [ngTemplateOutlet]="slide.tplRef" [ngTemplateOutletContext]="{ 
-                  $implicit: preparePublicSlide(slide), 
+                                (animationend)="clear(slide.id)">
+              @if (slide.load) {
+                <ng-template  [ngTemplateOutlet]="slide.tplRef" [ngTemplateOutletContext]="{
+                  $implicit: preparePublicSlide(slide),
                   index: i
                 }">
                 </ng-template>
               }
-          </div><!-- /.owl-item -->
-        }  
-      
-      </div><!-- /.owl-stage -->
+          </div>
+        }
+      </div>
     </div>
-  `, isInline: true, dependencies: [{ kind: "directive", type: i3.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { kind: "directive", type: i3.NgTemplateOutlet, selector: "[ngTemplateOutlet]", inputs: ["ngTemplateOutletContext", "ngTemplateOutlet", "ngTemplateOutletInjector"] }, { kind: "directive", type: i3.NgStyle, selector: "[ngStyle]", inputs: ["ngStyle"] }], animations: [
-            trigger('autoHeight', [
-                state('nulled', style({ height: 0 })),
-                state('full', style({ height: '*' })),
-                transition('full => nulled', [
-                    // style({height: '*'}),
-                    animate('700ms 350ms')
-                ]),
-                transition('nulled => full', [
-                    // style({height: 0}),
-                    animate(350)
-                ]),
-            ])
-        ] });
+  `, isInline: true, dependencies: [{ kind: "directive", type: i3.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { kind: "directive", type: i3.NgTemplateOutlet, selector: "[ngTemplateOutlet]", inputs: ["ngTemplateOutletContext", "ngTemplateOutlet", "ngTemplateOutletInjector"] }, { kind: "directive", type: i3.NgStyle, selector: "[ngStyle]", inputs: ["ngStyle"] }] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.2", ngImport: i0, type: StageComponent, decorators: [{
             type: Component,
@@ -3100,35 +3084,19 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.2", ngImpor
                                             'margin-left': slide.marginL ? slide.marginL + 'px' : '',
                                             'margin-right': slide.marginR ? slide.marginR + 'px' : '',
                                             'left': slide.left}"
-                                (animationend)="clear(slide.id)"
-                                [@autoHeight]="slide.heightState">
-              @if(slide.load) {
-                <ng-template  [ngTemplateOutlet]="slide.tplRef" [ngTemplateOutletContext]="{ 
-                  $implicit: preparePublicSlide(slide), 
+                                (animationend)="clear(slide.id)">
+              @if (slide.load) {
+                <ng-template  [ngTemplateOutlet]="slide.tplRef" [ngTemplateOutletContext]="{
+                  $implicit: preparePublicSlide(slide),
                   index: i
                 }">
                 </ng-template>
               }
-          </div><!-- /.owl-item -->
-        }  
-      
-      </div><!-- /.owl-stage -->
+          </div>
+        }
+      </div>
     </div>
   `,
-                    animations: [
-                        trigger('autoHeight', [
-                            state('nulled', style({ height: 0 })),
-                            state('full', style({ height: '*' })),
-                            transition('full => nulled', [
-                                // style({height: '*'}),
-                                animate('700ms 350ms')
-                            ]),
-                            transition('nulled => full', [
-                                // style({height: 0}),
-                                animate(350)
-                            ]),
-                        ])
-                    ],
                     standalone: false
                 }]
         }], ctorParameters: () => [{ type: i0.NgZone }, { type: i0.ElementRef }, { type: i0.Renderer2 }, { type: CarouselService }, { type: AnimateService }], propDecorators: { onMouseDown: [{

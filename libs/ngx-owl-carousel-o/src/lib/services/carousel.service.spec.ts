@@ -22,7 +22,6 @@ import { NavigationService } from './navigation.service';
 import { By } from '@angular/platform-browser';
 import { DOCUMENT_PROVIDERS } from './document-ref.service';
 import { StageComponent } from '../carousel/stage/stage.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { OwlLogger } from './logger.service';
 import { RouterModule } from '@angular/router';
 
@@ -96,7 +95,6 @@ describe('CarouselService in context of TestComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule,
         RouterModule.forRoot([
           { path: '', component: TestComponent },
         ]),

@@ -5,13 +5,6 @@ import { first } from 'rxjs/operators';
 import { StageData } from '../../models/stage-data.model';
 import { SlideModel } from '../../models/slide.model';
 import { AnimateService } from '../../services/animate.service';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 @Component({
   selector: 'owl-stage',
   template: `
@@ -30,35 +23,19 @@ import {
                                             'margin-left': slide.marginL ? slide.marginL + 'px' : '',
                                             'margin-right': slide.marginR ? slide.marginR + 'px' : '',
                                             'left': slide.left}"
-                                (animationend)="clear(slide.id)"
-                                [@autoHeight]="slide.heightState">
-              @if(slide.load) {
-                <ng-template  [ngTemplateOutlet]="slide.tplRef" [ngTemplateOutletContext]="{ 
-                  $implicit: preparePublicSlide(slide), 
+                                (animationend)="clear(slide.id)">
+              @if (slide.load) {
+                <ng-template  [ngTemplateOutlet]="slide.tplRef" [ngTemplateOutletContext]="{
+                  $implicit: preparePublicSlide(slide),
                   index: i
                 }">
                 </ng-template>
               }
-          </div><!-- /.owl-item -->
-        }  
-      
-      </div><!-- /.owl-stage -->
+          </div>
+        }
+      </div>
     </div>
   `,
-  animations: [
-    trigger('autoHeight', [
-      state('nulled', style({ height: 0 })),
-      state('full', style({ height: '*' })),
-      transition('full => nulled', [
-        // style({height: '*'}),
-        animate('700ms 350ms')
-      ]),
-      transition('nulled => full', [
-        // style({height: 0}),
-        animate(350)
-      ]),
-    ])
-  ],
   standalone: false
 })
 export class StageComponent implements OnInit, OnDestroy {

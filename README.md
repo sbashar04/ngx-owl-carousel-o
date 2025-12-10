@@ -113,9 +113,9 @@ ngx-owl-carousel-o      | Angular
     ```html
       <div>Some tags before</div>
       <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide>Slide 1</ng-template>  
-        <ng-template carouselSlide>Slide 2</ng-template>  
-        <ng-template carouselSlide>Slide 3</ng-template>  
+        <ng-template carouselSlide>Slide 1</ng-template>
+        <ng-template carouselSlide>Slide 2</ng-template>
+        <ng-template carouselSlide>Slide 3</ng-template>
       </owl-carousel-o>
       <div>Some tags after</div>
     ```
@@ -155,7 +155,7 @@ ngx-owl-carousel-o      | Angular
 
 It's possible to set own id to every slide.
 
-> Every `id` must have the type `string`. Otherwise, slides won't get ids what will cause one problem, which appears when the developer uses the option `responsive`.  Slides won't be shown when the width of the screen changes and the carousel has to apply new settings according to the defined breakpoint. This is because the code uses ids of slides in order to assign new data to slides. So if you change the width of the screen and slides disappear, there could be the problem with setting `id`.  
+> Every `id` must have the type `string`. Otherwise, slides won't get ids what will cause one problem, which appears when the developer uses the option `responsive`.  Slides won't be shown when the width of the screen changes and the carousel has to apply new settings according to the defined breakpoint. This is because the code uses ids of slides in order to assign new data to slides. So if you change the width of the screen and slides disappear, there could be the problem with setting `id`.
 > If `id`s aren't set explicitly, they will be created automatically.
 
 The example of setting ids:
@@ -313,7 +313,7 @@ The number of pages depends on the number of all slides and the option `items` (
 
 ### rewind
 
-The documentation of Owl Carousel says the default value of this option is set to `true`, but the code defines it as `false`. In **ngx-owl-carousel-o**, its default value is set to `false`.  
+The documentation of Owl Carousel says the default value of this option is set to `true`, but the code defines it as `false`. In **ngx-owl-carousel-o**, its default value is set to `false`.
 
 **WARNING**: options `rewind` and `loop` shouldn't be enabled in one carousel. They do a similar job in different ways.
 
@@ -374,7 +374,7 @@ It means that mutating options object won't trigger the carousel refreshing:
   }
 
   changeOptions() {
-    this.customOptions.loop = false; // this won't refresh the carousel 
+    this.customOptions.loop = false; // this won't refresh the carousel
   }
 ```
 
@@ -405,7 +405,6 @@ Example of usage this directive:
 
 ```html
   <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
-  
     @for (item of carouselData; track item.id) {
       <ng-template carouselSlide>
         <div class="slider">
@@ -998,7 +997,7 @@ It's possible to move the carousel left/right and to needed slide from different
       </div><!-- /.carousel-item team-member -->
     </ng-template>
   }
-  
+
 </owl-carousel-o>
 
 <p>
@@ -1276,9 +1275,9 @@ An internal slide data could be very helpful to add cool Angular animations. Use
     ```html
       <owl-carousel-o [options]="customOptions" #owlCat>
         @for (image of imagesData; track image.id) {
-          <ng-template carouselSlide let-owlItem> 
+          <ng-template carouselSlide let-owlItem>
             <!--                                 \/          -->
-            <div class="slide" [@activeSlide]="owlItem.isCentered ? 'active' : 'inActive'">
+            <div class="slide">
               <img [src]="image.src" [alt]="image.alt" [title]="image.title">
             </div>
           </ng-template>
@@ -1296,7 +1295,7 @@ Example of usage in a template with `mat-menu`:
 
 ```html
   <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
-          
+
     @for (item of carouselData; track item.id; let i = $index) {
       <ng-template carouselSlide [width]="item.width">
         <div class="slider">
@@ -1313,15 +1312,15 @@ Example of usage in a template with `mat-menu`:
               </mat-menu>
             </div>
           }
-            
+
         </div><!-- /.carousel-item team-member -->
       </ng-template>
     }
-    
+
   </owl-carousel-o>
 ```
 
-When menu is opened, you call `stopAutoplay`: `(menuOpened)="owlCar.stopAutoplay()"`  
+When menu is opened, you call `stopAutoplay`: `(menuOpened)="owlCar.stopAutoplay()"`
 When menu is closed, you call `startAutoplay`: `(closed)="owlCar.startAutoplay()"`
 
 ## License
